@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  twitchbot:
+    build:
+      context: ./services/twitchbot/
+    environment:
+      - TWITCH_TOKEN=oauth:xxx
+      - TWITCH_USERNAME=xxxx
+      - TWITCH_CHANNELS=xxxx
+      - REDIS_URL=cache
