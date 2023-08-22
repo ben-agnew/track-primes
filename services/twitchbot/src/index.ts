@@ -139,6 +139,9 @@ async function handleSub(channel:string, username:string, method:tmi.SubMethods,
   try {
     const redis = await initRedis();
     await redis.setex(`${channel.replace("#","").toLowerCase()}-prime-${username}`, 2592000, "prime");
+    await redis.quit();
+    client.say(channel, `Added ${username} to the prime list.`);
+    console.log(`Added ${username} to the prime list.`);
     
   } catch (error) {
     
